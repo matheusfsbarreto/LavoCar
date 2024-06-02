@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LavoCar.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create" class=" linkLogin" ><img class="miniico" style="margin-right:5px;" src="~/img/createICO.png"/>Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoneCliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoneCliente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClienteID"><img class="ico" src="~/img/edit.webp" /></a> |
+                <a asp-action="Details" asp-route-id="@item.ClienteID"><img class="ico" src="~/img/details.webp" /></a> |
+                <a asp-action="Delete" asp-route-id="@item.ClienteID"><img class="ico" src="~/img/deletar.webp" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

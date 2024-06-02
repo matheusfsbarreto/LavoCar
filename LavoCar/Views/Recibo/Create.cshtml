@@ -1,0 +1,44 @@
+﻿@model LavoCar.Models.Recibo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Emitir Recibo</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClienteID" class="control-label">Nome do Cliente</label>
+                <select asp-for="ClienteID" class ="form-control" asp-items="@(new SelectList(ViewBag.Clientes, "ClienteID", "NomeCliente"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarroID" class="control-label">Modelo do Veículo</label>
+                <select asp-for="CarroID" class ="form-control" asp-items="@(new SelectList(ViewBag.Carros, "CarroID", "Modelo"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="LavagemID" class="control-label">Data da Lavagem</label>
+                <select asp-for="LavagemID" class ="form-control" asp-items="@(new SelectList(ViewBag.Lavagens, "LavID", "DataLav"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoLavagemID" class="control-label">Tipo de Lavagem</label>
+                <select asp-for="TipoLavagemID" class ="form-control" asp-items="@(new SelectList(ViewBag.TipoLavagens, "TipoLavID", "DescTipoLav"))"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Emitir" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary" >Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

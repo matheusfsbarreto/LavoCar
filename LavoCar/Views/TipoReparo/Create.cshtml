@@ -1,0 +1,33 @@
+﻿@model LavoCar.Controllers.TipoReparo
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastrar Novo Tipo de Reparo</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DescTipoReparo" class="control-label"></label>
+                <input asp-for="DescTipoReparo" class="form-control" />
+                <span asp-validation-for="DescTipoReparo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecoTipoReparo" class="control-label"></label>
+                <input asp-for="PrecoTipoReparo" class="form-control" />
+                <span asp-validation-for="PrecoTipoReparo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model LavoCar.Controllers.TipoReparo
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deseja remover esse cadastro ?</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DescTipoReparo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescTipoReparo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecoTipoReparo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecoTipoReparo),00
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TipoReparoID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary">Voltar</a>
+    </form>
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LavoCar.Controllers.Lavagem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lavagens Marcadas</h1>
+
+<p>
+    <a asp-action="Create" class=" linkLogin"><img class="miniico" style="margin-right:5px;" src="~/img/createICO.png" />Novo</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLav)
+            </th>
+            <th>
+                Descrição da Lavagem
+            </th>
+            <th>
+               Preço da Lavagem
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLav)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoLavagem.DescTipoLav)
+            </td>
+            <td>
+               R$ @Html.DisplayFor(modelItem => item.TipoLavagem.PrecoTipoLav),00
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LavID"><img class="ico" src="~/img/edit.webp" /></a> |
+                <a asp-action="Details" asp-route-id="@item.LavID"><img class="ico" src="~/img/details.webp" /></a> |
+                <a asp-action="Delete" asp-route-id="@item.LavID"><img class="ico" src="~/img/deletar.webp" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

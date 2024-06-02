@@ -1,0 +1,66 @@
+﻿@model LavoCar.Controllers.Lavagem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Lavagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LavID" />
+            <div class="form-group">
+                <label asp-for="DataLav" class="control-label"></label>
+                <input asp-for="DataLav" class="form-control" />
+                <span asp-validation-for="DataLav" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CarroID" class="control-label"> Carro</label>
+                @* <select asp-for="CarroID" class="form-control" asp-items=@(new SelectList(ViewBag.Carros, "CarroID", "Placa"))></select> *@
+                <select asp-for="CarroID" class="form-control" asp-items=@ViewBag.Carros></select>
+                <span asp-validation-for="CarroID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoLavagemID" class="control-label"> Tipo da Lavagem</label>
+                @* <select asp-for="TipoLavagemID" class="form-control" asp-items=@(new SelectList(ViewBag.TipoLavagens, "TipoLavID", "DescTipoLav"))></select> *@
+                <select asp-for="TipoLavagemID" class="form-control" asp-items=@ViewBag.TipoLavagens></select>
+                <span asp-validation-for="TipoLavagemID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FuncionarioID" class="control-label"> Funcionario</label>
+                @* <select asp-for="FuncionarioID" class="form-control" asp-items=@(new SelectList(ViewBag.Funcionarios, "FuncionarioID", "NomeFuncionario"))></select> *@
+                <select asp-for="FuncionarioID" class="form-control" asp-items=@ViewBag.Funcionarios></select>
+                <span asp-validation-for="FuncionarioID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+            <div class="col-sm-4">
+                Valor Lavagem
+            </div>
+            <div class="col-sm-8">
+                R$ @Html.DisplayFor(model => model.TipoLavagem.PrecoTipoLav),00
+            </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

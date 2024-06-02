@@ -1,0 +1,48 @@
+﻿@model LavoCar.Models.Recibo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Recibo</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ReciboID" />
+            <div class="form-group">
+                <label asp-for="ClienteID" class="control-label">Cliente</label>
+                <select asp-for="ClienteID" class="form-control" asp-items="@ViewBag.Clientes"></select>
+                <span asp-validation-for="ClienteID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarroID" class="control-label">Modelo do Veículo</label>
+                <select asp-for="CarroID" class="form-control" asp-items="@ViewBag.Carros"></select>
+                <span asp-validation-for="CarroID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LavagemID" class="control-label">Data da Lavagem</label>
+                <select asp-for="LavagemID" class="form-control" asp-items="@ViewBag.Lavagens"></select>
+                <span asp-validation-for="LavagemID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoLavagemID" class="control-label">Descrição da Lavagem</label>
+                <select asp-for="TipoLavagemID" class="form-control" asp-items="@ViewBag.TipoLavagens"></select>
+                <span asp-validation-for="TipoLavagemID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,40 @@
+﻿@model LavoCar.Controllers.Reparo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastrar Novo Reparo</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DataReparo" class="control-label"></label>
+                <input asp-for="DataReparo" class="form-control" />
+                <span asp-validation-for="DataReparo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CarroID" class="control-label">Carro</label>
+                <select asp-for="CarroID" class="form-control" asp-items="@(new SelectList(ViewBag.Carros, "CarroID", "Placa"))"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoReparoID" class="control-label">Tipo de Reparo</label>
+                <select asp-for="TipoReparoID" class="form-control" asp-items="@(new SelectList(ViewBag.TipoReparos, "TipoReparoID", "DescTipoReparo"))"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+

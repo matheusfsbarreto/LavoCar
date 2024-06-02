@@ -1,0 +1,28 @@
+﻿@model LavoCar.Controllers.Lavagem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Remover Lavagem</h1>
+
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataLav)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataLav)
+        </dd>
+       
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="LavID" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-primary">Voltar</a>
+    </form>
+</div>

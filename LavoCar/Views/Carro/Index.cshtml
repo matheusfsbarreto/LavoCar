@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LavoCar.Controllers.Carro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Carros</h1>
+
+<p>
+    <a asp-action="Create" class=" linkLogin"><img class="miniico" style="margin-right:5px;" src="~/img/createICO.png" />Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ano)
+            </th>
+@*             <th>
+                @Html.DisplayNameFor(model => model.MarcaModelo.DescMarcaModelo)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+@*             <td>
+                @Html.DisplayFor(modelItem => item.MarcaModelo.DescMarcaModelo)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CarroID"><img class="ico" src="~/img/edit.webp" /></a> |
+                <a asp-action="Details" asp-route-id="@item.CarroID"><img class="ico" src="~/img/details.webp" /></a> |
+                <a asp-action="Delete" asp-route-id="@item.CarroID"><img class="ico" src="~/img/deletar.webp" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
